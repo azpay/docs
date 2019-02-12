@@ -1,0 +1,30 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "AZPay Docs",
+  "scripts": {
+    "transactions": "swagger-ui-watcher ./transactions/index.yaml -p 5001",
+    "checkout": "swagger-ui-watcher ./checkout/index.yaml -p 5002",
+    "swagger-ui-watcher": "swagger-ui-watcher",
+    "build": "./scripts/build.sh",
+    "deploy": "./scripts/deploy.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azpay/docs.git"
+  },
+  "keywords": [
+    "azpay",
+    "docs"
+  ],
+  "author": "AZPay Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/azpay/docs/issues"
+  },
+  "homepage": "https://github.com/azpay/docs#readme",
+  "dependencies": {
+    "rdme": "^2.2.3",
+    "swagger-ui-watcher": "^2.1.6"
+  }
+}

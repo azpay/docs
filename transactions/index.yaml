@@ -1,0 +1,51 @@
+openapi: 3.0.0
+# Added by API Auto Mocking Plugin
+servers:
+  - description: AZPay Transactions API
+    url: http://evaluation-api.azpay.com.br/v1
+info:
+  description: This is AZPay Transactions API
+  version: "1.0.0"
+  title: AZPay Transactions API
+  contact:
+    email: contato@azpay.com.br
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+paths:
+  /inventory:
+    get:
+      tags:
+        - developers
+      summary: searches inventory
+      operationId: searchInventory
+      description: |
+        By passing in the appropriate options, you can search for
+        available inventory in the system
+      parameters:
+        - in: query
+          name: searchString
+          description: pass an optional search string for looking up inventory
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: skip
+          description: number of records to skip for pagination
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+        - in: query
+          name: limit
+          description: maximum number of records to return
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+            maximum: 50
+      responses:
+        '200':
+          description: search results matching criteria
+        '400':
+          description: bad input parameter
