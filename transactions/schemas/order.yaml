@@ -1,0 +1,41 @@
+DefaultOrder:
+  type: object
+  required:
+    - reference
+    - totalAmount
+  properties:
+    reference:
+      type: string
+      description: "[1..16] A reference number/id of a product, order, service, etc."
+      example: "123456789" 
+      default: "123456789" 
+    totalAmount:
+      type: string
+      description: "[3..12] The total amount of this transaction. $1,00 = 100"
+      example: "10000"
+      default:  "10000"
+
+OrderResponse:
+  type: object
+  properties:
+    reference:
+      type: string
+      description: "A reference number/id of a product, order, etc."
+      example: "123456789" 
+      default: "123456789" 
+    currency:
+      type: string
+      description: "The currency number in the ISO 4217 standard."
+      default: "986"
+      example: "986"
+    totalAmount:
+      type: string
+      description: "The total amount of this transaction. $1,00 = 100"
+      example: "10000"
+      default:  "10000"
+    dateTime:
+      type: string
+      example: "2019-02-13T12:12:14.794-02:00"
+      default: "2019-02-13T12:12:14.794-02:00"
+
+  

@@ -1,0 +1,41 @@
+### Debit Cards
+DebitCardAuthorization:
+    post:
+      parameters:
+      - $ref: '../parameters/index.yaml#/ContentType'
+      tags:
+        - Debit Card
+      summary: Authorizing a debit card
+      operationId: debitCardAuthorization
+      description: |
+        Through this endpoint is possible to Authorize a debit card transaction
+      requestBody:
+        description: The payload for authorizations
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - transaction-request
+              properties:
+                transaction-request:
+                  $ref: '../schemas/debitCard.yaml#/Authorize'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/debitCard.yaml#/AuthorizeResponse'
+        '400':
+          description: BAD REQUEST
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/error.yaml#/DefaultError'
+        '409':
+          description: CONFLICT
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/error.yaml#/DefaultError'

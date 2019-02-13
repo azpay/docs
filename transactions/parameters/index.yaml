@@ -1,0 +1,15 @@
+Authorization:
+  in: header
+  name: Authorization
+  description: Private token that secures communication to API
+  required: true
+  schema:
+    type: string
+ContentType:
+  in: header
+  name: Content-Type
+  description: The kind of content you passing, it accepts JSON and XML
+  required: true
+  schema:
+    type: string
+  example: application/json

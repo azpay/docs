@@ -1,0 +1,79 @@
+Authorize:
+  type: object
+  required:
+    - version
+    - verification
+    - authorize
+  properties:
+    version: 
+      type: string
+      description: "[3..5] The XML version number"
+      example: "1.0.0"
+      default: "1.0.0"
+    verification:
+      $ref: './verification.yaml#/DefaultVerification'
+    authorize:
+      type: object
+      required:
+        - order
+        - payment
+        - billing
+        - urlReturn
+        - fraud
+      properties:
+        order:
+          $ref: './order.yaml#/DefaultOrder'
+        payment:
+          $ref: './payment.yaml#/DefaultDebitPayment'
+        billing:
+          $ref: './billing.yaml#/DefaultBilling'
+        urlReturn:
+          type: string
+          description: "[0..255] The URL that will receive an HTTPS POST after changes in the transaction's status"
+          example: http://loja.exemplo.com.br
+          default: http://loja.exemplo.com.br
+        fraud: 
+          type: string
+          description: "['true' or 'false'] Anti-fraud system. (Verify Availability)"
+          example: 'false'
+          default: 'false'
+        customField:
+          type: string
+          description: "[0..255] A param you can use for your custom needs"
+          example: "This is a custom field being used"
+
+AuthorizeResponse:
+  type: object
+  properties:
+    transactionId:
+      type: string
+      description: The ID of the transaction on AZPay
+      example: "52580F07-80FD-3241-DAE2-BDC38138193A"
+      default: "52580F07-80FD-3241-DAE2-BDC38138193A"
+    operationId: 
+      type: string
+      example: "1"
+      default: "1"
+    status:
+      type: string
+      description: The current status of the transaction
+      example: "0"
+      default: "0"
+    message: 
+      type: string
+      description: The response message from AZPay
+      example: WAITING FOR PAYMENT
+      default: WAITING FOR PAYMENT
+    log:
+      type: string
+      example: ""
+      default: ""
+    errorCode:
+      type: string
+      description: Check at https://doc.azpay.com.br/docs/api-codigos-de-erros
+      example: ""
+      default: ""
+    order:
+      $ref: "./order.yaml#/OrderResponse"
+    processor:
+      $ref: "./processor.yaml#/DefaultProcessor"

@@ -1,0 +1,82 @@
+### PagSeguro
+PagSeguro:
+    post:
+      parameters:
+      - $ref: '../parameters/index.yaml#/ContentType'
+      tags:
+        - PagSeguro
+      summary: Creating a PagSeguro URL
+      operationId: PagSeguro
+      description: |
+        Through this endpoint is possible to create a PagSeguro URL
+      requestBody:
+        description: The payload for creating a PagSeguro URL
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - transaction-request
+              properties:
+                transaction-request:
+                  $ref: '../schemas/pagSeguro.yaml#/PagSeguro'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/pagSeguro.yaml#/PagSeguroResponse'
+        '400':
+          description: BAD REQUEST
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/error.yaml#/DefaultError'
+        '409':
+          description: CONFLICT
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/error.yaml#/DefaultError'
+
+PagSeguroCheckout:
+    post:
+      parameters:
+      - $ref: '../parameters/index.yaml#/ContentType'
+      tags:
+        - PagSeguro
+      summary: Creating a PagSeguro Checkout
+      operationId: PagSeguroCheckout
+      description: |
+        Through this endpoint is possible to create a PagSeguro Checkout
+      requestBody:
+        description: The payload for creating a PagSeguro Checkout
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - transaction-request
+              properties:
+                transaction-request:
+                  $ref: '../schemas/pagSeguro.yaml#/PagSeguroCheckout'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/pagSeguro.yaml#/PagSeguroCheckoutResponse'
+        '400':
+          description: BAD REQUEST
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/error.yaml#/DefaultError'
+        '409':
+          description: CONFLICT
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/error.yaml#/DefaultError'

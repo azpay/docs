@@ -1,0 +1,16 @@
+DefaultVerification:
+  type: object
+  required:
+    - merchantId
+    - merchantKey
+  properties:
+    merchantId:
+      type: string
+      description: "[1..10] The store's number on AZPay. You can find yours on https://hub.azpay.com.br"
+      default: ""
+      example: "1"
+    merchantKey:
+      type: string
+      default: ""
+      description: "[10..50] The store token on AZPay. You can find yours on https://hub.azpay.com.br"
+      example: "d41d8cd98f00b204e9800998ecf8427e"

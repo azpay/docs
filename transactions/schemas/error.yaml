@@ -1,0 +1,53 @@
+DefaultError:
+  type: object
+  properties:
+    transactionId:
+      type: string
+      description: The ID of the transaction on AZPay
+      example: "52580F07-80FD-3241-DAE2-BDC38138193A"
+      default: "52580F07-80FD-3241-DAE2-BDC38138193A"
+    status:
+      type: object
+      properties: 
+        code:
+          type: string
+          description: The HTTPS error
+          example: ""
+          default: ""
+        message:
+          type: string
+          description: The error message from AZPay
+          example: ""
+          default: ""
+    result:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: Check at https://doc.azpay.com.br/docs/api-codigos-de-erros
+              example: ""
+              default: ""
+            action:
+              type: string
+              description: The error's action
+              example: ""
+              default: ""
+            message:
+              type: string
+              description: The message that describes de error
+              example: ""
+              default: ""
+            details:
+              type: string
+              description: Details about the error that can help you
+              example: ""
+              default: ""
+            moreInfo:
+              type: string
+              description: Suggestions and things you could do
+              example: ""
+              default: ""
+          

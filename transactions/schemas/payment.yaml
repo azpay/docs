@@ -1,0 +1,319 @@
+DefaultCardPayment:
+  type: object
+  required:
+    - acquirer
+    - method
+    - amount
+    - currency
+    - country
+    - numberOfPayments
+    - flag
+    - cardHolder
+    - cardNumber
+    - cardSecurityCode
+    - cardExpirationDate
+    - saveCreditCard
+    - generateToken
+  properties:
+    cardToken:
+      type: string
+      description: "[50...100] A card token in our API.This token can be passed instead of other card params "
+    acquirer:
+      type: string
+      description: "[1..9] The acquirer's id, you can check them here: https://doc.azpay.com.br/docs/api-codigo-de-envio"
+      default: "1"
+      example: "1"
+    method:
+      type: string
+      description: "[1..9] The method's id. You can find it here: https://doc.azpay.com.br/docs/api-codigo-de-envio"
+      default: "1"
+      example: "1"
+    amount:
+      type: string
+      description: "[3..12] This payment total amount (it must include all costs such as shipment, packing and any extra costs or fees). This is the amount the customer will be charged"
+      default: "10000"
+      example: "10000"
+    currency:
+      type: string
+      description: "[3..3] The currency number in the ISO 4217 standard."
+      default: "986"
+      example: "986"
+    country:
+      type: string
+      description: "[3..3] The country where the order was created following the ISO 3166-1 alpha-3 standard. Default code is BRA (Brazil)."
+      default: "BRA"
+      example: "BRA"
+    numberOfPayments:
+      type: string
+      description: "[1..2] Number of installments. In payments with no installments this param should be '1'"
+      default: "1"
+      example: "1"
+    flag:
+      type: string
+      description: "[0..0] The brand of your credit card in lowercase: 'mastercard', 'visa', 'diners', etc."
+      default: "mastercard"
+      example: "mastercard"
+    cardHolder:
+      type: string
+      description: "[1..25] The name on the card."
+      default: Jose Da Silva
+      example: Jose Da Silva
+    cardNumber:
+      type: string
+      description: "[12..19] The card's number."
+      default: "5392947655401104"
+      example: "5392947655401104"
+    cardSecurityCode:
+      type: string
+      description: "[3..4] The card's security code (PIN)."
+      default: "438"
+      example: "438"
+    cardExpirationDate:
+      type: string
+      description: "[0..0] The card's expiration date following the format 'yyyymm'. Eg: 202010 (2020/october)."
+      default: "201908"
+      example: "201908"
+    saveCreditCard:
+      type: string
+      description: "['true' or 'false'] In case you want to save the card params." 
+      default: "false"
+      example: "false"
+    generateToken:
+      type: string
+      description: "['true' or 'false'] Creates a card token"
+      default: "false"
+      example: "false"
+    softDescriptor:
+      type: string
+      description: "[1..13] What will be written in the customer's credit card billing statement"
+      default: ""
+      example: "Test payload"
+
+DefaultDebitPayment:
+  type: object
+  required:
+    - acquirer
+    - method
+    - amount
+    - currency
+    - country
+    - numberOfPayments
+    - flag
+    - cardHolder
+    - cardNumber
+    - cardSecurityCode
+    - cardExpirationDate
+    - saveCreditCard
+    - generateToken
+  properties:
+    cardToken:
+      type: string
+      description: "[50...100] A card token in our API.This token can be passed instead of other card params "
+    acquirer:
+      type: string
+      description: "[1..9] The acquirer's id, you can check them here: https://doc.azpay.com.br/docs/api-codigo-de-envio"
+      default: "1"
+      example: "1"
+    method:
+      type: string
+      description: "[1..9] The method's id. You can find it here: https://doc.azpay.com.br/docs/api-codigo-de-envio"
+      default: "4"
+      example: "4"
+    amount:
+      type: string
+      description: "[3..12] This payment total amount (it must include all costs such as shipment, packing and any extra costs or fees). This is the amount the customer will be charged"
+      default: "10000"
+      example: "10000"
+    currency:
+      type: string
+      description: "[3..3] The currency number in the ISO 4217 standard."
+      default: "986"
+      example: "986"
+    country:
+      type: string
+      description: "[3..3] The country where the order was created following the ISO 3166-1 alpha-3 standard. Default code is BRA (Brazil)."
+      default: "BRA"
+      example: "BRA"
+    numberOfPayments:
+      type: string
+      description: "[1..2] Number of installments. In payments with no installments this param should be '1'"
+      default: "1"
+      example: "1"
+    flag:
+      type: string
+      description: "[0..0] The brand of your card in lowercase: 'mastercard', 'visa', 'diners', etc."
+      default: "mastercard"
+      example: "mastercard"
+    cardHolder:
+      type: string
+      description: "[1..25] The name on the card."
+      default: Jose Da Silva
+      example: Jose Da Silva
+    cardNumber:
+      type: string
+      description: "[12..19] The card's number."
+      default: "5309444172627710"
+      example: "5309444172627710"
+    cardSecurityCode:
+      type: string
+      description: "[3..4] The card's security code (PIN)."
+      default: "905"
+      example: "905"
+    cardExpirationDate:
+      type: string
+      description: "[0..0] The card's expiration date following the format 'yyyymm'. Eg: 202010 (2020/october)."
+      default: "202101"
+      example: "202101"
+    saveCreditCard:
+      type: string
+      description: "['true' or 'false'] In case you want to save the card params." 
+      default: "false"
+      example: "false"
+    generateToken:
+      type: string
+      description: "['true' or 'false'] Creates a card token"
+      default: "false"
+      example: "false"
+    softDescriptor:
+      type: string
+      description: "[1..13] What will be written in the customer's card billing statement"
+      default: ""
+      example: "Test payload"
+
+DefaultBoletoPayment:
+  type: object
+  required:
+    - acquirer
+    - expire
+    - nrDocument
+    - amount
+    - currency
+    - country
+    - instructions
+  properties:
+    acquirer:
+      type: string
+      description: "[1..9] The acquirer's id, you can check them here: https://doc.azpay.com.br/docs/api-codigo-de-envio"
+      default: "18"
+      example: "18"
+    expire:
+      type: string
+      description: "[10..10] The Boleto's expire date. Format YYYY-MM-DD"
+      default: "2020-09-12"
+      example: "2020-09-12"
+    nrDocument:
+      type: string
+      description: "[1..8] The boleto's identification number(Número do documento). This is what will be shown in the bank statement"
+      example: "25091818"
+    nossoNumero:
+      type: string
+      description: "[1..9] The boleto's identification number(Nosso número). This is what will be shown in the bank statement"
+      example: "092001876"
+    amount:
+      type: string
+      description: "[3..12] This payment total amount (it must include all costs such as shipment, packing and any extra costs or fees). This is the amount the customer will be charged"
+      default: "10000"
+      example: "10000"
+    currency:
+      type: string
+      description: "[3..3] The currency number in the ISO 4217 standard."
+      default: "986"
+      example: "986"
+    country:
+      type: string
+      description: "[3..3] The country where the order was created following the ISO 3166-1 alpha-3 standard. Default code is BRA (Brazil)."
+      default: "BRA"
+      example: "BRA"
+    instructions:
+      type: string
+      description: "[0..255] The instructions written on the boleto."
+      default: "Não aceitar pagamento em cheques. \\n Percentual Juros Dia: 1%. Percentual Multa: 1%."
+      example:  "Não aceitar pagamento em cheques. \\n Percentual Juros Dia: 1%. Percentual Multa: 1%."
+
+PagSeguroPayment:
+  type: object
+  required:
+    - amount
+    - currency
+    - country
+  properties:
+    amount:
+      type: string
+      description: "[3..12] This payment total amount (it must include all costs such as shipment, packing and any extra costs or fees). This is the amount the customer will be charged"
+      default: "10000"
+      example: "10000"
+    currency:
+      type: string
+      description: "[3..3] The currency number in the ISO 4217 standard."
+      default: "986"
+      example: "986"
+    country:
+      type: string
+      description: "[3..3] The country where the order was created following the ISO 3166-1 alpha-3 standard. Default code is BRA (Brazil)."
+      default: "BRA"
+      example: "BRA"
+
+PagSeguroCheckoutPayment:
+  type: object
+  required:
+    - method
+    - amount
+    - currency
+    - country
+    - numberOfPayments
+    - flag
+    - cardHolder
+    - cardNumber
+    - cardSecurityCode
+    - cardExpirationDate
+  properties:
+    method:
+      type: string
+      description: "[1..9] The method's id. You can find it here: https://doc.azpay.com.br/docs/api-codigo-de-envio"
+      default: "1"
+      example: "1"
+    amount:
+      type: string
+      description: "[3..12] This payment total amount (it must include all costs such as shipment, packing and any extra costs or fees). This is the amount the customer will be charged"
+      default: "10000"
+      example: "10000"
+    currency:
+      type: string
+      description: "[3..3] The currency number in the ISO 4217 standard."
+      default: "986"
+      example: "986"
+    country:
+      type: string
+      description: "[3..3] The country where the order was created following the ISO 3166-1 alpha-3 standard. Default code is BRA (Brazil)."
+      default: "BRA"
+      example: "BRA"
+    numberOfPayments:
+      type: string
+      description: "[1..2] Number of installments. In payments with no installments this param should be '1'"
+      default: "1"
+      example: "1"
+    flag:
+      type: string
+      description: "[0..0] The brand of your credit card in lowercase: 'mastercard', 'visa', 'diners', etc."
+      default: "mastercard"
+      example: "mastercard"
+    cardHolder:
+      type: string
+      description: "[1..25] The name on the card."
+      default: Jose Da Silva
+      example: Jose Da Silva
+    cardNumber:
+      type: string
+      description: "[12..19] The card's number."
+      default: "5392947655401104"
+      example: "5392947655401104"
+    cardSecurityCode:
+      type: string
+      description: "[3..4] The card's security code (PIN)."
+      default: "438"
+      example: "438"
+    cardExpirationDate:
+      type: string
+      description: "[0..0] The card's expiration date following the format 'yyyymm'. Eg: 202010 (2020/october)."
+      default: "201908"
+      example: "201908"

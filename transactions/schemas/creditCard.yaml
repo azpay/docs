@@ -1,0 +1,283 @@
+Authorize:
+  type: object
+  required:
+    - version
+    - verification
+    - authorize
+  properties:
+    version: 
+      type: string
+      description: "[3..5] The XML version number"
+      example: "1.0.0"
+      default: "1.0.0"
+    verification:
+      $ref: './verification.yaml#/DefaultVerification'
+    authorize:
+      type: object
+      required:
+        - order
+        - payment
+        - billing
+        - urlReturn
+        - fraud
+      properties:
+        order:
+          $ref: './order.yaml#/DefaultOrder'
+        payment:
+          $ref: './payment.yaml#/DefaultCardPayment'
+        billing:
+          $ref: './billing.yaml#/DefaultBilling'
+        urlReturn:
+          type: string
+          description: "[0..255] The URL that will receive an HTTPS POST after changes in the transaction's status"
+          example: http://loja.exemplo.com.br
+          default: http://loja.exemplo.com.br
+        fraud: 
+          type: string
+          description: "['true' or 'false'] Anti-fraud system. (Verify Availability)"
+          example: 'false'
+          default: 'false'
+        customField:
+          type: string
+          description: "[0..255] A param you can use for your custom needs"
+          example: "This is a custom field being used"
+
+AuthorizeResponse:
+  type: object
+  properties:
+    transactionId:
+      type: string
+      description: The ID of the transaction on AZPay
+      example: "52580F07-80FD-3241-DAE2-BDC38138193A"
+      default: "52580F07-80FD-3241-DAE2-BDC38138193A"
+    operationId: 
+      type: string
+      example: "1"
+      default: "1"
+    status:
+      type: string
+      description: The current status of the transaction
+      example: "1"
+      default: "1"
+    message: 
+      type: string
+      description: The response message from AZPay
+      example: AUTHORIZED
+      default: AUTHORIZED
+    log:
+      type: string
+      example: ""
+      default: ""
+    errorCode:
+      type: string
+      description: Check at https://doc.azpay.com.br/docs/api-codigos-de-erros
+      example: ""
+      default: ""
+    order:
+      $ref: "./order.yaml#/OrderResponse"
+    processor:
+      $ref: "./processor.yaml#/DefaultProcessor"
+
+Capture:
+  type: object
+  required:
+    - version
+    - verification
+    - capture
+  properties:
+    version: 
+      type: string
+      description: "[3..5] The XML version number"
+      example: "1.0.0"
+      default: "1.0.0"
+    verification:
+      $ref: './verification.yaml#/DefaultVerification'
+    capture:
+      type: object
+      required:
+        - transactionId
+      properties:
+        transactionId:
+          type: string
+          description: "The id of an Authorized transaction"
+          example: D97832E5-2B96-E3BE-F7B4-87318C5A333A
+
+CaptureResponse:
+  type: object
+  properties:
+    transactionId:
+      type: string
+      description: The ID of the transaction on AZPay
+      example: "52580F07-80FD-3241-DAE2-BDC38138193A"
+      default: "52580F07-80FD-3241-DAE2-BDC38138193A"
+    operationId: 
+      type: string
+      example: "2"
+      default: "2"
+    status:
+      type: string
+      description: The current status of the transaction
+      example: "8"
+      default: "8"
+    message: 
+      type: string
+      description: The response message from AZPay
+      example: CAPTURED
+      default: CAPTURED
+    log:
+      type: string
+      example: ""
+      default: ""
+    errorCode:
+      type: string
+      description: Check at https://doc.azpay.com.br/docs/api-codigos-de-erros
+      example: ""
+      default: ""
+    order:
+      $ref: "./order.yaml#/OrderResponse"
+    processor:
+      $ref: "./processor.yaml#/DefaultProcessor"
+
+Sale:
+  type: object
+  required:
+    - version
+    - verification
+    - sale
+  properties:
+    version: 
+      type: string
+      description: "[3..5] The XML version number"
+      example: "1.0.0"
+      default: "1.0.0"
+    verification:
+      $ref: './verification.yaml#/DefaultVerification'
+    sale:
+      type: object
+      required:
+        - order
+        - payment
+        - billing
+        - urlReturn
+        - fraud
+      properties:
+        order:
+          $ref: './order.yaml#/DefaultOrder'
+        payment:
+          $ref: './payment.yaml#/DefaultCardPayment'
+        billing:
+          $ref: './billing.yaml#/DefaultBilling'
+        urlReturn:
+          type: string
+          description: "[0..255] The URL that will receive an HTTPS POST after changes in the transaction's status"
+          example: http://loja.exemplo.com.br
+          default: http://loja.exemplo.com.br
+        fraud: 
+          type: string
+          description: "['true' or 'false'] Anti-fraud system. (Verify Availability)"
+          example: 'false'
+          default: 'false'
+        customField:
+          type: string
+          description: "[0..255] A param you can use for your custom needs"
+          example: "This is a custom field being used"
+
+SaleResponse:
+  type: object
+  properties:
+    transactionId:
+      type: string
+      description: The ID of the transaction on AZPay
+      example: "52580F07-80FD-3241-DAE2-BDC38138193A"
+      default: "52580F07-80FD-3241-DAE2-BDC38138193A"
+    operationId: 
+      type: string
+      example: "3"
+      default: "3"
+    status:
+      type: string
+      description: The current status of the transaction
+      example: "8"
+      default: "8"
+    message: 
+      type: string
+      description: The response message from AZPay
+      example: APPROVED
+      default: APPROVED
+    log:
+      type: string
+      example: ""
+      default: ""
+    errorCode:
+      type: string
+      description: Check at https://doc.azpay.com.br/docs/api-codigos-de-erros
+      example: ""
+      default: ""
+    order:
+      $ref: "./order.yaml#/OrderResponse"
+    processor:
+      $ref: "./processor.yaml#/DefaultProcessor"
+
+Cancel:
+  type: object
+  required:
+    - version
+    - verification
+    - capture
+  properties:
+    version: 
+      type: string
+      description: "[3..5] The XML version number"
+      example: "1.0.0"
+      default: "1.0.0"
+    verification:
+      $ref: './verification.yaml#/DefaultVerification'
+    cancel:
+      type: object
+      required:
+        - transactionId
+      properties:
+        transactionId:
+          type: string
+          description: "The id of an Authorized transaction"
+          example: D97832E5-2B96-E3BE-F7B4-87318C5A333A
+        amount:
+          type: string
+          description: "The amount for a partial cancellation. Only for acquires that support that functionality. See more in the Details bellow."
+          example: "5000"
+
+CancelResponse:
+  type: object
+  properties:
+    transactionId:
+      type: string
+      description: The ID of the transaction on AZPay
+      example: "52580F07-80FD-3241-DAE2-BDC38138193A"
+      default: "52580F07-80FD-3241-DAE2-BDC38138193A"
+    operationId: 
+      type: string
+      example: "5"
+      default: "5"
+    status:
+      type: string
+      description: The current status of the transaction
+      example: "6"
+      default: "6"
+    message: 
+      type: string
+      description: The response message from AZPay
+      example: CANCELLED
+      default: CANCELLED
+    log:
+      type: string
+      example: ""
+      default: ""
+    errorCode:
+      type: string
+      description: Check at https://doc.azpay.com.br/docs/api-codigos-de-erros
+      example: ""
+      default: ""
+    order:
+      $ref: "./order.yaml#/OrderResponse"
+    processor:
+      $ref: "./processor.yaml#/DefaultProcessor"

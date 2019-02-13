@@ -1,0 +1,41 @@
+##Boletos
+Boleto:
+    post:
+      parameters:
+      - $ref: '../parameters/index.yaml#/ContentType'
+      tags:
+        - Boleto
+      summary: Generating a Boleto
+      operationId: generatingBoleto
+      description: |
+        Through this endpoint is possible to generate a Boleto
+      requestBody:
+        description: The payload for boleto's generation
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - transaction-request
+              properties:
+                transaction-request:
+                  $ref: '../schemas/boleto.yaml#/Boleto'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/boleto.yaml#/BoletoResponse'
+        '400':
+          description: BAD REQUEST
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/error.yaml#/DefaultError'
+        '409':
+          description: CONFLICT
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/error.yaml#/DefaultError'

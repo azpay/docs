@@ -1,0 +1,23 @@
+  /receiver#creditCardAuthorization:
+    $ref: './creditCard.yaml#/CreditCardAuthorization'
+
+  /receiver#creditCardCapture:
+    $ref: './creditCard.yaml#/CreditCardCapture'
+
+  /receiver#creditCardSale:
+    $ref: './creditCard.yaml#/CreditCardSale'
+
+  /receiver#creditCardCancel:
+    $ref: './creditCard.yaml#/CreditCardCancel'
+
+  /receiver#debitCardAuthorization:
+    $ref: './debitCard.yaml#/DebitCardAuthorization'
+
+  /receiver#boleto:
+    $ref: './boleto.yaml#/Boleto'
+
+  /receiver#pagseguro:
+    $ref: './pagSeguro.yaml#/PagSeguro'
+
+  /receiver#pagsegurocheckout:
+    $ref: './pagSeguro.yaml#/PagSeguroCheckout'

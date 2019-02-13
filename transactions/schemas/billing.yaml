@@ -1,0 +1,197 @@
+DefaultBilling:
+  type: object
+  required:
+    - customerIdentity
+    - name
+    - email
+  properties: 
+    customerIdentity: 
+      type: string
+      description: "[1..30] Customer's unique identification number"
+      default: "1" 
+      example: "1"
+    name: 
+      type: string
+      description: "[0..30] Customer's name"
+      default: Fulano de Tal
+      example: Fulano de Tal
+    address: 
+      type: string
+      description: "[0..255] Customer's address"
+      example: Avenida Federativa, 230
+    address2:
+      type: string
+      description: "[0..255] Customer's additional address details"
+      example: 10 Andar
+    city:
+      type: string
+      description: "[0..255] Customer's city"
+      example: Mogi das Cruzes
+    state:
+      type: string
+      description: "[0..255] Customer's state or province"
+      example: SP
+    postalCode:
+      type: string
+      description: "[0..255] Customer's postal code"
+      example: "20031170"
+    country:
+      type: string
+      description: "[0..255] Customer's country"
+      example: BR
+    phone:
+      type: string
+      description: "[0..45] Customer's phone number"
+      example: "114777000"
+    email:
+      type: string
+      description: "[0..145] Customer's email"
+      example: fulanodetal@email.com 
+      default: fulanodetal@email.com 
+
+BoletoBilling:
+  type: object
+  required:
+    - customerIdentity
+    - cpf
+    - cnpj
+    - name
+    - address
+    - city
+    - state
+    - postalCode
+    - email
+  properties: 
+    customerIdentity: 
+      type: string
+      description: "[1..30] Customer's unique identification number"
+      default: "1" 
+      example: "1"
+    cpf: 
+      type: string
+      description: "[1..155] Customer's CPF. You must pass either this or one CNPJ"
+      default: "79190019008" 
+      example: "79190019008"
+    cnpj: 
+      type: string
+      description: "[1..155] Customer's CNPJ. You must pass either this or one CPF"
+      example: "94338937000115"
+    name: 
+      type: string
+      description: "[0..30] Customer's name"
+      default: Fulano de Tal
+      example: Fulano de Tal
+    address: 
+      type: string
+      description: "[0..255] Customer's address"
+      default: Avenida Federativa, 230
+      example: Avenida Federativa, 230
+    address2:
+      type: string
+      description: "[0..255] Customer's additional address details"
+      example: 10 Andar
+    city:
+      type: string
+      description: "[0..255] Customer's city"
+      default: Mogi das Cruzes
+      example: Mogi das Cruzes
+    state:
+      type: string
+      description: "[0..255] Customer's state or province"
+      default: SP
+      example: SP
+    postalCode:
+      type: string
+      description: "[0..255] Customer's postal code"
+      default: "20031170"
+      example: "20031170"
+    country:
+      type: string
+      description: "[0..255] Customer's country"
+      example: BR
+    phone:
+      type: string
+      description: "[0..45] Customer's phone number"
+      example: "114777000"
+    email:
+      type: string
+      description: "[0..145] Customer's email"
+      default: fulanodetal@email.com 
+      example: fulanodetal@email.com 
+
+PagSeguroCheckoutBilling:
+  type: object
+  required:
+    - customerIdentity
+    - name
+    - address
+    - address2
+    - city
+    - state
+    - postalCode
+    - country
+    - phone
+    - email
+    - cpf
+    - birthDate
+  properties: 
+    customerIdentity: 
+      type: string
+      description: "[1..30] Customer's unique identification number"
+      default: "1" 
+      example: "1"
+    name: 
+      type: string
+      description: "[1..30] Customer's name"
+      default: Fulano de Tal
+      example: Fulano de Tal
+    address: 
+      type: string
+      description: "[1..255] Customer's address"
+      example: Avenida Federativa, 230
+      default: Avenida Federativa, 230
+    address2:
+      type: string
+      description: "[1..255] Customer's additional address details"
+      example: 10 Andar
+      default: 10 Andar
+    city:
+      type: string
+      description: "[1..255] Customer's city"
+      example: Mogi das Cruzes
+      default: Mogi das Cruzes
+    state:
+      type: string
+      description: "[1..255] Customer's state or province"
+      example: SP
+      default: SP
+    postalCode:
+      type: string
+      description: "[1..255] Customer's postal code"
+      example: "20031170"
+      default: "20031170"
+    country:
+      type: string
+      description: "[1..255] Customer's country"
+      example: BR
+      default: BR
+    phone:
+      type: string
+      description: "[1..45] Customer's phone number"
+      example: "114777000"
+      default: "114777000"
+    email:
+      type: string
+      description: "[1..145] Customer's email"
+      example: fulanodetal@email.com 
+      default: fulanodetal@email.com 
+    cpf: 
+      type: string
+      description: "[1..10] Customer's CPF."
+      default: "79190019008" 
+      example: "79190019008"
+    birthDate: 
+      type: string
+      description: "[1..10] Customer's birth date. Format DD/MM/YY"
+      default: "09/11/1934" 
+      example: "09/11/1934"

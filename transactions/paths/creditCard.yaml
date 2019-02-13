@@ -1,0 +1,165 @@
+### Credit Cards
+CreditCardAuthorization:
+    post:
+      parameters:
+      - $ref: '../parameters/index.yaml#/ContentType'
+      tags:
+        - Credit Card
+      summary: Authorizing a credit card
+      operationId: creditCardAuthorization
+      description: |
+        Through this endpoint is possible to Authorize a credit card transaction
+      requestBody:
+        description: The payload for authorizations
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - transaction-request
+              properties:
+                transaction-request:
+                  $ref: '../schemas/creditCard.yaml#/Authorize'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/creditCard.yaml#/AuthorizeResponse'
+        '400':
+          description: BAD REQUEST
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/error.yaml#/DefaultError'
+        '409':
+          description: CONFLICT
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/error.yaml#/DefaultError'
+
+CreditCardCapture:
+    post:
+      parameters:
+      - $ref: '../parameters/index.yaml#/ContentType'
+      tags:
+        - Credit Card
+      summary: Capturing a credit card transaction
+      operationId: creditCardCapture
+      description: |
+        Through this endpoint is possible to Capture a credit card transaction
+      requestBody:
+        description: The payload for capturing an Authorized transaction
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - transaction-request
+              properties:
+                transaction-request:
+                  $ref: '../schemas/creditCard.yaml#/Capture'
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/creditCard.yaml#/CaptureResponse'
+        '400':
+          description: BAD REQUEST
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/error.yaml#/DefaultError'
+        '409':
+          description: CONFLICT
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/error.yaml#/DefaultError'
+
+CreditCardSale:
+    post:
+      parameters:
+      - $ref: '../parameters/index.yaml#/ContentType'
+      tags:
+        - Credit Card
+      summary: Creating a credit card sale
+      operationId: creditCardSale
+      description: |
+        Through this endpoint is possible to create a sale
+      requestBody:
+        description: The payload for creating a sale transaction
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - transaction-request
+              properties:
+                transaction-request:
+                  $ref: '../schemas/creditCard.yaml#/Sale'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/creditCard.yaml#/SaleResponse'
+        '400':
+          description: BAD REQUEST
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/error.yaml#/DefaultError'
+        '409':
+          description: CONFLICT
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/error.yaml#/DefaultError'
+
+CreditCardCancel:
+    post:
+      parameters:
+      - $ref: '../parameters/index.yaml#/ContentType'
+      tags:
+        - Credit Card
+      summary: Canceling a credit card transaction
+      operationId: creditCardCancel
+      description: |
+        Through this endpoint is possible to Cancel an Authorize or Sale transaction
+      requestBody:
+        description: The payload for  cancelling an Authorize or Sale transaction
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - transaction-request
+              properties:
+                transaction-request:
+                  $ref: '../schemas/creditCard.yaml#/Cancel'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/creditCard.yaml#/CancelResponse'
+        '400':
+          description: BAD REQUEST
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/error.yaml#/DefaultError'
+        '409':
+          description: CONFLICT
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/error.yaml#/DefaultError'
