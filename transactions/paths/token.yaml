@@ -1,16 +1,15 @@
-### Paypal
-PaypalExpress:
+CreateToken:
     post:
       parameters:
       - $ref: '../parameters/index.yaml#/ContentType'
       tags:
-        - Paypal
-      summary: Creating a Paypal Express URL
-      operationId: PaypalExpress
+        - Credit Card Tokenization
+      summary: Creating a credit card token
+      operationId: CreateCreditCardToken
       description: |
-        Through this endpoint is possible to create a Paypal Express URL
+        Through this endpoint is possible to create a credit card Token
       requestBody:
-        description: The payload for creating a Paypal Express URL
+        description: The payload for creating a credit card token 
         content:
           application/json:
             schema:
@@ -19,14 +18,14 @@ PaypalExpress:
                 - transaction-request
               properties:
                 transaction-request:
-                  $ref: '../schemas/paypal.yaml#/PaypalExpress'
+                  $ref: '../schemas/token.yaml#/CreateToken'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '../schemas/paypal.yaml#/PaypalResponse'
+                $ref: '../schemas/token.yaml#/TokenResponse'
         '400':
           description: BAD REQUEST
           content:
@@ -40,18 +39,18 @@ PaypalExpress:
               schema:
                 $ref: '../schemas/error.yaml#/DefaultError'
 
-PaypalPlus:
+RetrieveToken:
     post:
       parameters:
       - $ref: '../parameters/index.yaml#/ContentType'
       tags:
-        - Paypal
-      summary: Creating a Paypal plus URL
-      operationId: paypalPlus
+        - Credit Card Tokenization
+      summary: Retrieve a credit card token
+      operationId: RetrieveCreditCardToken
       description: |
-        Through this endpoint is possible to create a Paypal Plus URL
+        Through this endpoint is possible to retrieve a credit card Token
       requestBody:
-        description: The payload for creating a Paypal Plus URL
+        description: The payload for retrieving a credit card token 
         content:
           application/json:
             schema:
@@ -60,14 +59,14 @@ PaypalPlus:
                 - transaction-request
               properties:
                 transaction-request:
-                  $ref: '../schemas/paypal.yaml#/PaypalPlus'
+                  $ref: '../schemas/token.yaml#/RetrieveToken'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '../schemas/paypal.yaml#/PaypalResponse'
+                $ref: '../schemas/token.yaml#/TokenResponse'
         '400':
           description: BAD REQUEST
           content:

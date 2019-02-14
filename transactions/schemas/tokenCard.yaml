@@ -1,0 +1,47 @@
+TokenCard:
+  type: object
+  required:
+    - flag
+    - cardHolder
+    - cardNumber
+    - cardSecurityCode
+    - cardExpirationDate
+    - billing
+  properties:
+    flag:
+      type: string
+      description: "[0..0] The brand of your credit card in lowercase: 'mastercard', 'visa', 'diners', etc."
+      default: "mastercard"
+      example: "mastercard"
+    cardHolder:
+      type: string
+      description: "[1..25] The name on the card."
+      default: Jose Da Silva
+      example: Jose Da Silva
+    cardNumber:
+      type: string
+      description: "[12..19] The card's number."
+      default: "5392947655401104"
+      example: "5392947655401104"
+    cardSecurityCode:
+      type: string
+      description: "[3..4] The card's security code (PIN)."
+      default: "438"
+      example: "438"
+    cardExpirationDate:
+      type: string
+      description: "[0..0] The card's expiration date following the format 'yyyymm'. Eg: 202010 (2020/october)."
+      default: "201908"
+      example: "201908"
+    billing:
+      $ref: "./billing.yaml#/DefaultBilling"
+
+RetrieveToken:
+  type: object
+  required:
+    - token
+  properties:
+    token:
+      type: string
+      description: "The credit card token you created on AZPay"
+      example: "077673d79dc602b4bd56abb8139c19c21403e4350d306c6f06898366ce5ad1"

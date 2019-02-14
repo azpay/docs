@@ -1,16 +1,15 @@
-### Paypal
-PaypalExpress:
+TransactionReport:
     post:
       parameters:
       - $ref: '../parameters/index.yaml#/ContentType'
       tags:
-        - Paypal
-      summary: Creating a Paypal Express URL
-      operationId: PaypalExpress
+        - Transactions
+      summary: Getting a transaction report
+      operationId: TransactionsReport
       description: |
-        Through this endpoint is possible to create a Paypal Express URL
+        Through this endpoint is possible to receive a transaction report
       requestBody:
-        description: The payload for creating a Paypal Express URL
+        description: The payload for getting  a transaction reporting
         content:
           application/json:
             schema:
@@ -19,14 +18,14 @@ PaypalExpress:
                 - transaction-request
               properties:
                 transaction-request:
-                  $ref: '../schemas/paypal.yaml#/PaypalExpress'
+                  $ref: '../schemas/transaction.yaml#/Report'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '../schemas/paypal.yaml#/PaypalResponse'
+                $ref: '../schemas/transaction.yaml#/ReportResponse'
         '400':
           description: BAD REQUEST
           content:
@@ -40,18 +39,18 @@ PaypalExpress:
               schema:
                 $ref: '../schemas/error.yaml#/DefaultError'
 
-PaypalPlus:
+TransactionCancel:
     post:
       parameters:
       - $ref: '../parameters/index.yaml#/ContentType'
       tags:
-        - Paypal
-      summary: Creating a Paypal plus URL
-      operationId: paypalPlus
+        - Transactions
+      summary: Canceling a transaction
+      operationId: TransactionsCancel
       description: |
-        Through this endpoint is possible to create a Paypal Plus URL
+        Through this endpoint is possible to Cancel a transaction
       requestBody:
-        description: The payload for creating a Paypal Plus URL
+        description: The payload for cancelling a transaction
         content:
           application/json:
             schema:
@@ -60,14 +59,14 @@ PaypalPlus:
                 - transaction-request
               properties:
                 transaction-request:
-                  $ref: '../schemas/paypal.yaml#/PaypalPlus'
+                  $ref: '../schemas/creditCard.yaml#/Cancel'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '../schemas/paypal.yaml#/PaypalResponse'
+                $ref: '../schemas/creditCard.yaml#/CancelResponse'
         '400':
           description: BAD REQUEST
           content:

@@ -1,0 +1,59 @@
+Report:
+  type: object
+  required:
+    - version
+    - verification
+    - report
+  properties:
+    version: 
+      type: string
+      description: "[3..5] The XML version number"
+      example: "1.0.0"
+      default: "1.0.0"
+    verification:
+      $ref: './verification.yaml#/DefaultVerification'
+    report:
+      type: object
+      required:
+        - transactionId
+      properties:
+        transactionId:
+          type: string
+          description: "The id of an Authorized transaction"
+          example: D97832E5-2B96-E3BE-F7B4-87318C5A333A
+
+ReportResponse:
+  type: object
+  properties:
+    transactionId:
+      type: string
+      description: The ID of the transaction on AZPay
+      example: "52580F07-80FD-3241-DAE2-BDC38138193A"
+      default: "52580F07-80FD-3241-DAE2-BDC38138193A"
+    operationId: 
+      type: string
+      example: "1"
+      default: "1"
+    status:
+      type: string
+      description: The current status of the transaction
+      example: "3"
+      default: "3"
+    message: 
+      type: string
+      description: The response message from AZPay
+      example: AUTHORIZED
+      default: AUTHORIZED
+    log:
+      type: string
+      example: "Transacción autorizada"
+      default: "Transacción autorizada"
+    errorCode:
+      type: string
+      description: Check at https://doc.azpay.com.br/docs/api-codigos-de-erros
+      example: ""
+      default: ""
+    order:
+      $ref: "./order.yaml#/OrderResponse"
+    processor:
+      $ref: "./processor.yaml#/DefaultProcessor"

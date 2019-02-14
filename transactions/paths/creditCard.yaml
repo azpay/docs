@@ -123,18 +123,18 @@ CreditCardSale:
               schema:
                 $ref: '../schemas/error.yaml#/DefaultError'
 
-CreditCardCancel:
+CreditCardSchedule:
     post:
       parameters:
       - $ref: '../parameters/index.yaml#/ContentType'
       tags:
         - Credit Card
-      summary: Canceling a credit card transaction
-      operationId: creditCardCancel
+      summary: Scheduling a credit card transaction
+      operationId: scheduleTransaction
       description: |
-        Through this endpoint is possible to Cancel an Authorize or Sale transaction
+        Through this endpoint is possible to schedule credit card transaction
       requestBody:
-        description: The payload for  cancelling an Authorize or Sale transaction
+        description: The payload for scheduling credit card transactions
         content:
           application/json:
             schema:
@@ -143,14 +143,14 @@ CreditCardCancel:
                 - transaction-request
               properties:
                 transaction-request:
-                  $ref: '../schemas/creditCard.yaml#/Cancel'
+                  $ref: '../schemas/creditCard.yaml#/Schedule'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '../schemas/creditCard.yaml#/CancelResponse'
+                $ref: '../schemas/creditCard.yaml#/ScheduleResponse'
         '400':
           description: BAD REQUEST
           content:

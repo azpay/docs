@@ -15,6 +15,42 @@ DefaultOrder:
       example: "10000"
       default:  "10000"
 
+OrderSchedule:
+  type: object
+  required:
+    - reference
+    - totalAmount
+    - period
+    - frequency
+    - dateStart
+    - dateEnd
+  properties:
+    reference:
+      type: string
+      description: "[1..16] A reference number/id of a product, order, service, etc."
+      example: "123456789" 
+      default: "123456789" 
+    totalAmount:
+      type: string
+      description: "[3..12] The total amount of this transaction. $1,00 = 100"
+      example: "10000"
+      default:  "10000"
+    period:
+      type: string
+      description: "[1..1] 1=Day, 2=Week, 3=Month, 4=Year"
+      example: "3"
+      default:  "3"
+    dateStart:
+      type: string
+      description: "[10..10] First scheduled transaction. Format: YYYY-MM-DD"
+      example: "2022-01-01"
+      default: "2022-01-01"
+    dateEnd:
+      type: string
+      description: "[10..10] Last scheduled transaction. Format: YYYY-MM-DD"
+      example: "2022-12-01"
+      default: "2022-12-01"
+
 OrderResponse:
   type: object
   properties:

@@ -1,3 +1,41 @@
+PaypalExpress:
+  type: object
+  required:
+    - version
+    - verification
+    - paypal
+  properties:
+    version: 
+      type: string
+      description: "[3..5] The XML version number"
+      example: "1.0.0"
+      default: "1.0.0"
+    verification:
+      $ref: './verification.yaml#/DefaultVerification'
+    paypal:
+      type: object
+      required:
+        - order
+        - payment
+        - billing
+        - urlReturn
+      properties:
+        order:
+          $ref: './order.yaml#/DefaultOrder'
+        payment:
+          $ref: './payment.yaml#/PaypalExpressPayment'
+        billing:
+          $ref: './billing.yaml#/DefaultBilling'
+        urlReturn:
+          type: string
+          description: "[0..255] The URL that will receive an HTTPS POST after changes in the transaction's status"
+          example: http://loja.exemplo.com.br
+          default: http://loja.exemplo.com.br
+        customField:
+          type: string
+          description: "[0..255] A param you can use for your custom needs"
+          example: "This is a custom field being used"
+
 PaypalPlus:
   type: object
   required:
@@ -36,7 +74,7 @@ PaypalPlus:
           description: "[0..255] A param you can use for your custom needs"
           example: "This is a custom field being used"
 
-PaypalPlusResponse:
+PaypalResponse:
   type: object
   properties:
     transactionId:

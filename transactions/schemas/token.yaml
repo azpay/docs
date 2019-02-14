@@ -1,0 +1,122 @@
+CreateToken:
+  type: object
+  required:
+    - version
+    - verification
+    - tokenCard
+  properties:
+    version: 
+      type: string
+      description: "[3..5] The XML version number"
+      example: "1.0.0"
+      default: "1.0.0"
+    verification:
+      $ref: './verification.yaml#/DefaultVerification'
+    tokencard:
+      $ref: './tokenCard.yaml#/TokenCard'
+
+RetrieveToken:
+  type: object
+  required:
+    - version
+    - verification
+    - retrieve-token
+  properties:
+    version: 
+      type: string
+      description: "[3..5] The XML version number"
+      example: "1.0.0"
+      default: "1.0.0"
+    verification:
+      $ref: './verification.yaml#/DefaultVerification'
+    retrieve-token:
+      $ref: './tokenCard.yaml#/RetrieveToken'
+
+TokenResponse:
+  type: object
+  properties:
+    TokenCard:
+      type: string
+      example: "70775673d79dc602b4bd56abb8139c19c21403e4350d306c6f06898366ce5ad1"
+    BIN:
+      type: string
+      example: "53*****6430"
+    CardHolder:
+      type: string
+      example: Jose da Silva
+    Month: 
+      type: string
+      example: "05"
+    Year:
+      type: string
+      example: "2019"
+    Flag:
+      type: string
+      example: "mastercard"
+    Address1:
+      type: string
+      example: Av. República do Chile, 230
+    Address2:
+      type: string
+      example: 16th Floor
+    City:
+      type: string
+      example: Rio de Janeiro
+    State:
+      type: string
+      example: RJ
+    Zipcode:
+      type: string
+      example: "20031170"
+    Created_at:
+      type: string
+      example: "1495347575"
+    Client:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "2621"
+        name:
+          type: string
+          example: Jose Da Silva
+        address:
+          type: string
+          example: Av. República do Chile, 230
+        address2:
+          type: string
+          example: 16th Floor
+        city:
+          type: string
+          example: Rio de Janeiro
+        state:
+          type: string
+          example: RJ
+        postalCode:
+          type: string
+          example: "20031170"
+        country:
+          type: string
+          example: BR
+        phone:
+          type: string
+          example: "2140099400"
+        email:
+          type: string
+          example: fulanodetal@email.com
+        status:
+          type: string
+          example: "1"
+        create_time:
+          type: string
+          example: "1495347575"
+        Store_id:
+          type: string
+          example: "1"
+        reference:
+          type: string
+          example: "261731976"
+        documentID:
+          type: string
+          example: "79190019008"
+

@@ -1,3 +1,9 @@
+  /receiver#transactionReport:
+    $ref: './transaction.yaml#/TransactionReport'
+
+  /receiver#transactionCancel:
+    $ref: './transaction.yaml#/TransactionCancel'
+  
   /receiver#creditCardAuthorization:
     $ref: './creditCard.yaml#/CreditCardAuthorization'
 
@@ -7,8 +13,8 @@
   /receiver#creditCardSale:
     $ref: './creditCard.yaml#/CreditCardSale'
 
-  /receiver#creditCardCancel:
-    $ref: './creditCard.yaml#/CreditCardCancel'
+  /receiver#creditCardSchedule:
+    $ref: './creditCard.yaml#/CreditCardSchedule'
 
   /receiver#debitCardAuthorization:
     $ref: './debitCard.yaml#/DebitCardAuthorization'
@@ -21,6 +27,9 @@
 
   /receiver#pagsegurocheckout:
     $ref: './pagSeguro.yaml#/PagSeguroCheckout'
+
+  /receiver#paypalExpress:
+    $ref: './paypal.yaml#/PaypalExpress'
 
   /receiver#paypalPlus:
     $ref: './paypal.yaml#/PaypalPlus'
@@ -36,3 +45,9 @@
 
   /receiver#FcontrolAntiFraud:
     $ref: './antiFraud.yaml#/FcontrolAntiFraud'
+
+  /token/add:
+    $ref: './token.yaml#/CreateToken'
+  
+  /token/retrieve:
+    $ref: './token.yaml#/RetrieveToken'
