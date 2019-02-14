@@ -1,0 +1,391 @@
+ClearSaleFraud:
+  type: object
+  required:
+    - operator
+    - method
+    - costumerIP
+    - name
+    - document
+    - phonePrefix
+    - phoneNumber
+    - address
+    - address2
+    - addressNumber
+    - city
+    - state
+    - postalCode
+    - country
+    - email
+    - itens
+  properties:
+    operator:
+      type: string
+      description: "[1..45] 'clearsale', 'fcontrol' or 'konduto'"
+      default: clearsale
+      example: clearsale
+    method:
+      type: string
+      description: "[1..45] 'start', 'frame' or 'score'"
+      default: start
+      example: start
+    costumerIP:
+      type: string
+      description: Constumer's IP
+      default: "111.222.333.444"
+      example: "111.222.333.444"
+    device:
+      type: string
+      description: Device's hash genereated by a javascript in your site. (Konduto Only)
+      example: 4738d516f09cab3a2c1ee973bec88a5a367a59e4
+    name:
+      type: string
+      description: Customer's full name
+      default: Fulano de Tal
+      example: Fulano de Tal
+    document:
+      type: string
+      description: Customer's id document(CPF, RG)
+      default: "79190019008"
+      example: "79190019008"
+    phonePrefix:
+      type: string
+      description: Dialling codes
+      default: "11"
+      example: "11"
+    phoneNumber:
+      type: string
+      description: Customer's phone number
+      default: "11"
+      example: "11"
+    address:
+      type: string
+      description: Customer's address
+      default: Av. República do Brasil
+      example: Av. República do Brasil
+    addressNumber: 
+      type: string
+      description: Customer's address number
+      default: "1988"
+      example: "1988"
+    address2:
+      type: string
+      description: Customer's additional address Info
+      example: "Aparment 35"
+      default: "Aparment 35"
+    city:
+      type: string
+      description: Customer's city
+      default: São Paulo
+      example: São Paulo
+    state:
+      type: string
+      description: Customer's state or province
+      default: SP
+      example: SP
+    postalCode: 
+      type: string
+      description: Customer's postal code
+      default: "08742000"
+      example: "08742000"
+    country:
+      type: string
+      description: Customer's country
+      default: BR
+      example: BR
+    email:
+      type: string
+      description: Customer's email
+      default: fulanodetal@email.com
+      example: fulanodetal@email.com
+    itens:
+      description: All the items in this transaction
+      type: object
+      required:
+        - item
+      properties:
+        item:
+          type: array
+          items:
+            type: object
+            required:
+              - productName
+              - quantity
+              - price
+            properties:
+              productName: 
+                type: string
+                description: Product's name
+                default: Headset 
+                example: Headset
+              quantity:
+                type: string
+                description: Product's quantity
+                default: "1"
+                example: "1"
+              price:
+                type: string
+                description: Product's price
+                default: "10000" 
+                example: "10000"
+
+FcontrolFraud:
+  type: object
+  required:
+    - operator
+    - method
+    - costumerIP
+    - name
+    - document
+    - phonePrefix
+    - phoneNumber
+    - address
+    - address2
+    - addressNumber
+    - city
+    - state
+    - postalCode
+    - country
+    - email
+    - itens
+  properties:
+    operator:
+      type: string
+      description: "[1..45] 'clearsale', 'fcontrol' or 'konduto'"
+      default: fcontrol
+      example: fcontrol
+    method:
+      type: string
+      description: "[1..45] 'start', 'frame' or 'score'"
+      default: frame
+      example: frame
+    costumerIP:
+      type: string
+      description: Constumer's IP
+      default: "111.222.333.444"
+      example: "111.222.333.444"
+    device:
+      type: string
+      description: Device's hash genereated by a javascript in your site. (Konduto Only)
+      example: 4738d516f09cab3a2c1ee973bec88a5a367a59e4
+    name:
+      type: string
+      description: Customer's full name
+      default: Fulano de Tal
+      example: Fulano de Tal
+    document:
+      type: string
+      description: Customer's id document(CPF, RG)
+      default: "79190019008"
+      example: "79190019008"
+    phonePrefix:
+      type: string
+      description: Dialling codes
+      default: "11"
+      example: "11"
+    phoneNumber:
+      type: string
+      description: Customer's phone number
+      default: "11"
+      example: "11"
+    address:
+      type: string
+      description: Customer's address
+      default: Av. República do Brasil
+      example: Av. República do Brasil
+    addressNumber: 
+      type: string
+      description: Customer's address number
+      default: "1988"
+      example: "1988"
+    address2:
+      type: string
+      description: Customer's additional address Info
+      example: "Aparment 35"
+      default: "Apartment 35"
+    city:
+      type: string
+      description: Customer's city
+      default: São Paulo
+      example: São Paulo
+    state:
+      type: string
+      description: Customer's state or province
+      default: SP
+      example: SP
+    postalCode: 
+      type: string
+      description: Customer's postal code
+      default: "08742000"
+      example: "08742000"
+    country:
+      type: string
+      description: Customer's country
+      default: BR
+      example: BR
+    email:
+      type: string
+      description: Customer's email
+      default: fulanodetal@email.com
+      example: fulanodetal@email.com
+    itens:
+      description: All the items in this transaction
+      type: object
+      required:
+        - item
+      properties:
+        item:
+          type: array
+          items:
+            type: object
+            required:
+              - productName
+              - quantity
+              - price
+            properties:
+              productName: 
+                type: string
+                description: Product's name
+                default: Headset 
+                example: Headset
+              quantity:
+                type: string
+                description: Product's quantity
+                default: "1"
+                example: "1"
+              price:
+                type: string
+                description: Product's price
+                default: "10000" 
+                example: "10000"
+
+KondutoFraud:
+  type: object
+  required:
+    - operator
+    - method
+    - costumerIP
+    - device
+    - name
+    - document
+    - phonePrefix
+    - phoneNumber
+    - address
+    - address2
+    - addressNumber
+    - city
+    - state
+    - postalCode
+    - country
+    - email
+    - itens
+  properties:
+    operator:
+      type: string
+      description: "[1..45] 'clearsale', 'fcontrol' or 'konduto'"
+      default: konduto
+      example: konduto
+    method:
+      type: string
+      description: "[1..45] 'start', 'frame' or 'score'"
+      default: score
+      example: score
+    costumerIP:
+      type: string
+      description: Constumer's IP
+      default: "111.222.333.444"
+      example: "111.222.333.444"
+    device:
+      type: string
+      description: Device's hash genereated by a javascript in your site. (Konduto Only)
+      example: 4738d516f09cab3a2c1ee973bec88a5a367a59e4
+      default: 4738d516f09cab3a2c1ee973bec88a5a367a59e4
+    name:
+      type: string
+      description: Customer's full name
+      default: Fulano de Tal
+      example: Fulano de Tal
+    document:
+      type: string
+      description: Customer's id document(CPF, RG)
+      default: "79190019008"
+      example: "79190019008"
+    phonePrefix:
+      type: string
+      description: Dialling codes
+      default: "11"
+      example: "11"
+    phoneNumber:
+      type: string
+      description: Customer's phone number
+      default: "11"
+      example: "11"
+    address:
+      type: string
+      description: Customer's address
+      default: Av. República do Brasil
+      example: Av. República do Brasil
+    addressNumber: 
+      type: string
+      description: Customer's address number
+      default: "1988"
+      example: "1988"
+    address2:
+      type: string
+      description: Customer's additional address Info
+      example: "Aparment 35"
+      default: "Apartment 35"
+    city:
+      type: string
+      description: Customer's city
+      default: São Paulo
+      example: São Paulo
+    state:
+      type: string
+      description: Customer's state or province
+      default: SP
+      example: SP
+    postalCode: 
+      type: string
+      description: Customer's postal code
+      default: "08742000"
+      example: "08742000"
+    country:
+      type: string
+      description: Customer's country
+      default: BR
+      example: BR
+    email:
+      type: string
+      description: Customer's email
+      default: fulanodetal@email.com
+      example: fulanodetal@email.com
+    itens:
+      description: All the items in this transaction
+      type: object
+      required:
+        - item
+      properties:
+        item:
+          type: array
+          items:
+            type: object
+            required:
+              - productName
+              - quantity
+              - price
+            properties:
+              productName: 
+                type: string
+                description: Product's name
+                default: Headset 
+                example: Headset
+              quantity:
+                type: string
+                description: Product's quantity
+                default: "1"
+                example: "1"
+              price:
+                type: string
+                description: Product's price
+                default: "10000" 
+                example: "10000"

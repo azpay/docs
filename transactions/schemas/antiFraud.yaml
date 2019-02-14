@@ -1,0 +1,141 @@
+
+ClearSaleAntiFraud:
+  type: object
+  required:
+    - version
+    - verification
+    - authorize
+  properties:
+    version: 
+      type: string
+      description: "[3..5] The XML version number"
+      example: "1.0.0"
+      default: "1.0.0"
+    verification:
+      $ref: './verification.yaml#/DefaultVerification'
+    authorize:
+      type: object
+      required:
+        - order
+        - payment
+        - billing
+        - urlReturn
+        - fraud
+        - fraudData
+      properties:
+        order:
+          $ref: './order.yaml#/DefaultOrder'
+        payment:
+          $ref: './payment.yaml#/DefaultCardPayment'
+        billing:
+          $ref: './billing.yaml#/DefaultBilling'
+        urlReturn:
+          type: string
+          description: "[0..255] The URL that will receive an HTTPS POST after changes in the transaction's status"
+          example: http://loja.exemplo.com.br
+          default: http://loja.exemplo.com.br
+        fraud: 
+          type: string
+          description: "['true' or 'false'] Anti-fraud system. (Verify Availability)"
+          example: 'true'
+          default: 'true'
+        fraudData:
+          $ref: './fraudData.yaml#/ClearSaleFraud'
+        customField:
+          type: string
+          description: "[0..255] A param you can use for your custom needs"
+          example: "This is a custom field being used"
+
+FcontrolAntiFraud:
+  type: object
+  required:
+    - version
+    - verification
+    - authorize
+  properties:
+    version: 
+      type: string
+      description: "[3..5] The XML version number"
+      example: "1.0.0"
+      default: "1.0.0"
+    verification:
+      $ref: './verification.yaml#/DefaultVerification'
+    authorize:
+      type: object
+      required:
+        - order
+        - payment
+        - billing
+        - urlReturn
+        - fraud
+        - fraudData
+      properties:
+        order:
+          $ref: './order.yaml#/DefaultOrder'
+        payment:
+          $ref: './payment.yaml#/DefaultCardPayment'
+        billing:
+          $ref: './billing.yaml#/DefaultBilling'
+        urlReturn:
+          type: string
+          description: "[0..255] The URL that will receive an HTTPS POST after changes in the transaction's status"
+          example: http://loja.exemplo.com.br
+          default: http://loja.exemplo.com.br
+        fraud: 
+          type: string
+          description: "['true' or 'false'] Anti-fraud system. (Verify Availability)"
+          example: 'true'
+          default: 'true'
+        fraudData:
+          $ref: './fraudData.yaml#/FcontrolFraud'
+        customField:
+          type: string
+          description: "[0..255] A param you can use for your custom needs"
+          example: "This is a custom field being used"
+
+KondutoAntiFraud:
+  type: object
+  required:
+    - version
+    - verification
+    - authorize
+  properties:
+    version: 
+      type: string
+      description: "[3..5] The XML version number"
+      example: "1.0.0"
+      default: "1.0.0"
+    verification:
+      $ref: './verification.yaml#/DefaultVerification'
+    authorize:
+      type: object
+      required:
+        - order
+        - payment
+        - billing
+        - urlReturn
+        - fraud
+        - fraudData
+      properties:
+        order:
+          $ref: './order.yaml#/DefaultOrder'
+        payment:
+          $ref: './payment.yaml#/DefaultCardPayment'
+        billing:
+          $ref: './billing.yaml#/DefaultBilling'
+        urlReturn:
+          type: string
+          description: "[0..255] The URL that will receive an HTTPS POST after changes in the transaction's status"
+          example: http://loja.exemplo.com.br
+          default: http://loja.exemplo.com.br
+        fraud: 
+          type: string
+          description: "['true' or 'false'] Anti-fraud system. (Verify Availability)"
+          example: 'true'
+          default: 'true'
+        fraudData:
+          $ref: './fraudData.yaml#/KondutoFraud'
+        customField:
+          type: string
+          description: "[0..255] A param you can use for your custom needs"
+          example: "This is a custom field being used"

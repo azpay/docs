@@ -21,3 +21,18 @@
 
   /receiver#pagsegurocheckout:
     $ref: './pagSeguro.yaml#/PagSeguroCheckout'
+
+  /receiver#paypalPlus:
+    $ref: './paypal.yaml#/PaypalPlus'
+  
+  /receiver#WireTransfer:
+    $ref: './wireTransfer.yaml#/WireTransfer'
+
+  /receiver#ClearSaleAntiFraud:
+    $ref: './antiFraud.yaml#/ClearSaleAntiFraud'
+
+  /receiver#KondutoAntiFraud:
+    $ref: './antiFraud.yaml#/KondutoAntiFraud'
+
+  /receiver#FcontrolAntiFraud:
+    $ref: './antiFraud.yaml#/FcontrolAntiFraud'

@@ -1,0 +1,41 @@
+### WireTransfer
+WireTransfer:
+    post:
+      parameters:
+      - $ref: '../parameters/index.yaml#/ContentType'
+      tags:
+        - Wire Transfer
+      summary: Creating a Wire Transfer URL
+      operationId: Wire Transfer
+      description: |
+        Through this endpoint is possible to create a Wire Transfer URL
+      requestBody:
+        description: The payload for creating a Wire Transfer URL
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - transaction-request
+              properties:
+                transaction-request:
+                  $ref: '../schemas/wireTransfer.yaml#/WireTransfer'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/wireTransfer.yaml#/WireTransferResponse'
+        '400':
+          description: BAD REQUEST
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/error.yaml#/DefaultError'
+        '409':
+          description: CONFLICT
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/error.yaml#/DefaultError'

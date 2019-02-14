@@ -1,0 +1,123 @@
+### Anti-Fraud
+ClearSaleAntiFraud:
+    post:
+      parameters:
+      - $ref: '../parameters/index.yaml#/ContentType'
+      tags:
+        - Anti-Fraud
+      summary: Anti-Fraud ClearSale
+      operationId: antiFraudClearSale
+      description: |
+        Through this endpoint is possible to authorize a credit card with an Anti-Fraud
+      requestBody:
+        description: The payload for authorizations with an Anti-Fraud
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - transaction-request
+              properties:
+                transaction-request:
+                  $ref: '../schemas/antiFraud.yaml#/ClearSaleAntiFraud'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/creditCard.yaml#/AuthorizeResponse'
+        '400':
+          description: BAD REQUEST
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/error.yaml#/DefaultError'
+        '409':
+          description: CONFLICT
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/error.yaml#/DefaultError'
+
+FcontrolAntiFraud:
+    post:
+      parameters:
+      - $ref: '../parameters/index.yaml#/ContentType'
+      tags:
+        - Anti-Fraud
+      summary: Anti-Fraud Fcontrol
+      operationId: antiFraudFcontrol
+      description: |
+        Through this endpoint is possible to authorize a credit card with an Anti-Fraud
+      requestBody:
+        description: The payload for authorizations with an Anti-Fraud
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - transaction-request
+              properties:
+                transaction-request:
+                  $ref: '../schemas/antiFraud.yaml#/FcontrolAntiFraud'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/creditCard.yaml#/AuthorizeResponse'
+        '400':
+          description: BAD REQUEST
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/error.yaml#/DefaultError'
+        '409':
+          description: CONFLICT
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/error.yaml#/DefaultError'
+
+KondutoAntiFraud:
+    post:
+      parameters:
+      - $ref: '../parameters/index.yaml#/ContentType'
+      tags:
+        - Anti-Fraud
+      summary: Anti-Fraud Konduto
+      operationId: antiFraudKonduto
+      description: |
+        Through this endpoint is possible to authorize a credit card with an Anti-Fraud
+      requestBody:
+        description: The payload for authorizations with an Anti-Fraud
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - transaction-request
+              properties:
+                transaction-request:
+                  $ref: '../schemas/antiFraud.yaml#/KondutoAntiFraud'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/creditCard.yaml#/AuthorizeResponse'
+        '400':
+          description: BAD REQUEST
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/error.yaml#/DefaultError'
+        '409':
+          description: CONFLICT
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/error.yaml#/DefaultError'

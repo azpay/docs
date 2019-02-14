@@ -317,3 +317,43 @@ PagSeguroCheckoutPayment:
       description: "[0..0] The card's expiration date following the format 'yyyymm'. Eg: 202010 (2020/october)."
       default: "201908"
       example: "201908"
+
+PaypalPlusPayment:
+  type: object
+  required:
+    - method
+    - amount
+    - currency
+    - country
+  properties:
+    method:
+      type: string
+      description: "[1..9] The method's id. You can find it here: https://doc.azpay.com.br/docs/api-codigo-de-envio"
+      default: "plus"
+      example: "plus"
+    amount:
+      type: string
+      description: "[3..12] This payment total amount (it must include all costs such as shipment, packing and any extra costs or fees). This is the amount the customer will be charged"
+      default: "10000"
+      example: "10000"
+    currency:
+      type: string
+      description: "[3..3] The currency number in the ISO 4217 standard."
+      default: "986"
+      example: "986"
+    country:
+      type: string
+      description: "[3..3] The country where the order was created following the ISO 3166-1 alpha-3 standard. Default code is BRA (Brazil)."
+      default: "BRA"
+      example: "BRA"
+
+WireTransferPayment:
+  type: object
+  required:
+    - acquirer
+  properties:
+    acquirer:
+      type: string
+      description: "[1..9] The acquirer's id, you can check them here: https://doc.azpay.com.br/docs/api-codigo-de-envio"
+      default: "20"
+      example: "20"
