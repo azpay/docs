@@ -1,0 +1,40 @@
+ContentType:
+  in: header
+  name: Content-Type
+  description: The kind of content you passing, it accepts JSON and XML
+  required: true
+  schema:
+    type: string
+  example: application/json
+
+MerchantId:
+  in: header
+  name: Merchant-Id
+  description: "Your Merchant-Id. You can find yours here: https://hub.azpay.com.br"
+  required: true
+  schema:
+    type: string
+
+MerchantKey:
+  in: header
+  name: Merchant-Key
+  description: "Your Merchant-Key. You can find yours here: https://hub.azpay.com.br"
+  required: true
+  schema:
+    type: string
+
+CheckoutToken:
+  in: header
+  name: Checkout-Token
+  description: "Your Checkout-Token. You can create yours here: https://painel.azpay.com.br"
+  required: true
+  schema:
+    type: string
+
+TransactionId:
+  in: path
+  name: TransactionId
+  description: The id of the transaction you're trying to retrieve
+  required: true
+  schema:
+    type: string

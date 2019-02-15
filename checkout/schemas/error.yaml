@@ -1,0 +1,21 @@
+DefaultError:
+  type: object
+  properties:
+    status:
+      type: string
+      description: The status of the request
+      example: error
+      default: error
+    error:
+      type: object
+      properties:
+        type:
+          type: string
+          description: The error type
+          example: AnErrorType
+          default: AnErrorType
+        message:
+          type: string
+          description: The message describing the error
+          example: "A wild error appears"
+          default: "A wild error appears"

@@ -1,0 +1,5 @@
+  /transactions/status/{TransactionId}:
+    $ref: './transactions.yaml#/RetrieveTransaction'
+
+  /orders:
+    $ref: './orders.yaml#/CreateOrder'

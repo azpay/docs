@@ -1,0 +1,28 @@
+###Transactions
+RetrieveTransaction:
+    get:
+      parameters:
+      - $ref: '../parameters/index.yaml#/ContentType'
+      - $ref: '../parameters/index.yaml#/MerchantId'
+      - $ref: '../parameters/index.yaml#/MerchantKey'
+      - $ref: '../parameters/index.yaml#/TransactionId'
+      tags:
+        - Transactions
+      summary: Retrieve a transaction by id
+      operationId: retrieveTransaction
+      description: |
+        Through this endpoint is possible to retrieve a transaction
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/transaction.yaml#/RetrieveTransactionResponse'
+        '400':
+          description: BAD REQUEST
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/error.yaml#/DefaultError'

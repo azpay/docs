@@ -1,0 +1,38 @@
+DefaultAddress:
+  type: object
+  description: The customer's address (This object can be required on your checkout)
+  properties:
+    country_iso_31661_alpha_3:
+      type: string
+      description: The customer's country ISO 31661 Alpha-3
+      example: BRA
+      default: BRA
+    postal_code:
+      type: string
+      description: The customer's postal code
+      example: "20031170"
+      default: "20031170"
+    city:
+      type: string
+      description: The customer's city
+      example: São Paulo
+      default: São Paulo
+    state:
+      type: string
+      description: The customer's state
+      example: SP
+      default: SP
+    street:
+      type: string
+      description: "Alameda das flores"
+      example: "Alameda das flores"
+      default: "Alameda das flores"
+    number:
+      type: string
+      description: The customer's residence number
+      example: "42"
+      default: "42"
+    complement:
+      type: string
+      description: "The customer's additional address details"
+      example: "Apto 1"

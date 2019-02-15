@@ -1,0 +1,30 @@
+DefaultCustomer:
+  type: object
+  properties:
+    email:
+      type: string
+      description: The customer's email
+      example: ford-prefect@betelgeuse.com
+      default: ford-prefect@betelgeuse.com
+    cpf:
+      type: string
+      description: The customer's cpf (this field can be required on your checkout)
+      example: "35929423016"
+      default: "35929423016"
+    first_name:
+      type: string
+      description: The customer's name
+      example: Ford
+      default: Ford
+    last_name:
+      type: string
+      description: The customer's last name
+      example: Prefect
+      default: Prefect
+    phone:
+      type: string
+      description: The customer's phone
+      example: "+55 48 1516-2342" 
+      default: "+55 48 1516-2342"
+    address:
+      $ref: "./address.yaml#/DefaultAddress"

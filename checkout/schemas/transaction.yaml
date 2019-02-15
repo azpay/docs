@@ -1,0 +1,48 @@
+RetrieveTransactionResponse:
+  type: object
+  properties:
+    result:
+      $ref: "#/RetrieveTransactionResult"
+    status:
+      type: string
+      description: The request status
+      example: ok
+      default: ok
+    message:
+      type: string
+      description: The request message
+      example: ""
+      default: ""
+  
+RetrieveTransactionResult:
+  type: object
+  description: The retrieve transaction
+  properties:
+    order_id:
+      type: string
+      description: The order's id
+      example: 5c43e965d0c6652063f6b3c5
+      default: 5c43e965d0c6652063f6b3c5
+    payment_processor_fee:
+      type: number
+      description: the payment method processor's fee
+      default: 2
+      example: 2
+    merchant_id:
+      type: string
+      description: Your merchant id
+      example: ""
+    merchant_key:
+      type: string
+      description: Your merchant key
+      example: ""
+    checkout_id:
+      type: string
+      description: The id of the transaction's checkout
+      example: ""
+    checkout_title:
+      type: string
+      description: The checkout's title
+      example: My checkout
+    customer:
+      $ref: "./customer.yaml#/DefaultCustomer"

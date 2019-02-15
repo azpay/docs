@@ -1,0 +1,34 @@
+### Orders
+CreateOrder:
+    post:
+      parameters:
+      - $ref: '../parameters/index.yaml#/ContentType'
+      - $ref: '../parameters/index.yaml#/MerchantId'
+      - $ref: '../parameters/index.yaml#/MerchantKey'
+      - $ref: '../parameters/index.yaml#/CheckoutToken'
+      tags:
+        - Orders
+      summary: Generate Order Token
+      operationId: generateOrderToken
+      description: |
+        Through this endpoint is possible to generate an order token
+      requestBody:
+        description: The payload to generate an order token
+        content:
+          application/json:
+            schema:
+              $ref: '../schemas/order.yaml#/GenerateOrderToken'
+
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/order.yaml#/OrderTokenResponse'
+        '400':
+          description: BAD REQUEST
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/error.yaml#/DefaultError'

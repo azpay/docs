@@ -1,0 +1,59 @@
+GenerateOrderToken:
+  type: object
+  required:
+    - items
+    - currency
+  properties:
+    items: 
+      type: array
+      items:
+        $ref: "./item.yaml#/DefaultItem"
+    customer:
+      $ref: "./customer.yaml#/DefaultCustomer"
+    currency:
+      type: string
+      description: "The currency ISO 3166-1 Alfa-3"
+      example: "BRL"
+      default: "BRL"
+    customField:
+      type: string
+      description: "A field for a custom string"
+      example: This is a custom string
+      default: This is a custom string
+
+OrderTokenResponse:
+  type: object
+  properties:
+    result: 
+      type: object
+      properties: 
+        created:
+          type: boolean
+          description: A boolean with the confirmation that the order token was generated
+          example: true
+          default: true
+        order: 
+          type: object
+          properties:
+            token:
+              type: string
+              description: The Order's token
+              example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJvcmRlciI6eyJpZCI6IjVjNjYwYjdINzM2MWU4NDVjZDgyYTc5YyJ9fQ.Kj-yaJwtvZnBhHD1LUywn0bzrDbqnQdT1itTRw47l-g
+              default: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJvcmRlciI6eyJpZCI6IjVjNjYwYjdINzM2MWU4NDVjZDgyYTc5YyJ9fQ.Kj-yaJwtvZnBhHD1LUywn0bzrDbqnQdT1itTRw47l-g
+            id: 
+              type: string
+              description: the Order's id
+              example: 5c760b7a7361e355cd72a79c
+              default: 5c660b7a7361e355cd72a79c
+    status: 
+      type: string
+      description: The request status
+      example: ok
+      default: ok
+    message: 
+      type: string
+      description: The requests message
+      example: ""
+      default: ""
+
+

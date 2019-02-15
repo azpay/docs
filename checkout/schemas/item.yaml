@@ -1,0 +1,22 @@
+DefaultItem:
+  type: object
+  required:
+    - name
+    - amount
+    - quantity
+  properties:
+    name:
+      type: string
+      description: The Item's name
+      example: Lord of the Rings Blu-Ray
+      default: Lord of the Rings Blu-Ray
+    amount:
+      type: number
+      description: The Item's price
+      example: 10000
+      default: 10000
+    quantity:
+      type: number
+      description: The Item's quantity
+      example: 2
+      default: 2

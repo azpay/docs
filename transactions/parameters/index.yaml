@@ -1,10 +1,3 @@
-Authorization:
-  in: header
-  name: Authorization
-  description: Private token that secures communication to API
-  required: true
-  schema:
-    type: string
 ContentType:
   in: header
   name: Content-Type
