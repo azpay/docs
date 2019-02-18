@@ -38,11 +38,11 @@ OrderSchedule:
     period:
       type: string
       description: "[1..1] 1=Day, 2=Week, 3=Month, 4=Year"
-      example: "3"
-      default:  "3"
+      example: "1"
+      default:  "1"
     frequency:
       type: string
-      description: "[1..2] The days until repeat. 15 = Every 15 days"
+      description: "[1..2] The frequency of the schedule"
       example: "15"
       default:  "15"
     dateStart:
