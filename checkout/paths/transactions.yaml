@@ -12,7 +12,6 @@ RetrieveTransaction:
       operationId: retrieveTransaction
       description: |
         Through this endpoint is possible to retrieve a transaction
-
       responses:
         '200':
           description: OK

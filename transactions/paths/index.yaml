@@ -4,6 +4,9 @@
   /receiver#transactionCancel:
     $ref: './transaction.yaml#/TransactionCancel'
   
+  /receiver#transactionSchedule:
+    $ref: './transaction.yaml#/TransactionSchedule'
+
   /receiver#creditCardAuthorization:
     $ref: './creditCard.yaml#/CreditCardAuthorization'
 
@@ -12,9 +15,6 @@
 
   /receiver#creditCardSale:
     $ref: './creditCard.yaml#/CreditCardSale'
-
-  /receiver#creditCardSchedule:
-    $ref: './creditCard.yaml#/CreditCardSchedule'
 
   /receiver#debitCardAuthorization:
     $ref: './debitCard.yaml#/DebitCardAuthorization'

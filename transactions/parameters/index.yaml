@@ -1,7 +1,7 @@
 ContentType:
   in: header
   name: Content-Type
-  description: The kind of content you passing, it accepts JSON and XML
+  description: The kind of content you're passing, it accepts JSON and XML
   required: true
   schema:
     type: string

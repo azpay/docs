@@ -79,3 +79,44 @@ TransactionCancel:
             application/json:
               schema:
                 $ref: '../schemas/error.yaml#/DefaultError'
+
+TransactionSchedule:
+    post:
+      parameters:
+      - $ref: '../parameters/index.yaml#/ContentType'
+      tags:
+        - Transactions
+      summary: Scheduling a transaction
+      operationId: scheduleTransaction
+      description: |
+        Through this endpoint is possible to schedule credit card and boleto transactions
+      requestBody:
+        description: The payload for scheduling credit card and boleto transactions
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - transaction-request
+              properties:
+                transaction-request:
+                  $ref: '../schemas/transaction.yaml#/Schedule'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/transaction.yaml#/ScheduleResponse'
+        '400':
+          description: BAD REQUEST
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/error.yaml#/DefaultError'
+        '409':
+          description: CONFLICT
+          content:
+            application/json:
+              schema:
+                $ref: '../schemas/error.yaml#/DefaultError'

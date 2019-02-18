@@ -40,6 +40,11 @@ OrderSchedule:
       description: "[1..1] 1=Day, 2=Week, 3=Month, 4=Year"
       example: "3"
       default:  "3"
+    frequency:
+      type: string
+      description: "[1..2] The days until repeat. 15 = Every 15 days"
+      example: "15"
+      default:  "15"
     dateStart:
       type: string
       description: "[10..10] First scheduled transaction. Format: YYYY-MM-DD"

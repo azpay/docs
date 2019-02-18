@@ -57,3 +57,77 @@ ReportResponse:
       $ref: "./order.yaml#/OrderResponse"
     processor:
       $ref: "./processor.yaml#/DefaultProcessor"
+
+Schedule:
+  type: object
+  required:
+    - version
+    - verification
+    - rebill
+  properties:
+    version: 
+      type: string
+      description: "[3..5] The XML version number"
+      example: "1.0.0"
+      default: "1.0.0"
+    verification:
+      $ref: './verification.yaml#/DefaultVerification'
+    rebill:
+      type: object
+      required:
+        - order
+        - paymentCreditCard
+        - billing
+        - urlReturn
+      properties:
+        order:
+          $ref: './order.yaml#/OrderSchedule'
+        paymentCreditCard:
+          $ref: './payment.yaml#/CardPaymentTokenless'
+        billing:
+          $ref: './billing.yaml#/DefaultBilling'
+        urlReturn:
+          type: string
+          description: "[0..255] The URL that will receive an HTTPS POST after changes in the transaction's status"
+          example: http://loja.exemplo.com.br
+          default: http://loja.exemplo.com.br
+        customField:
+          type: string
+          description: "[0..255] A param you can use for your custom needs"
+          example: "This is a custom field being used"
+
+ScheduleResponse:
+  type: object
+  properties:
+    transactionId:
+      type: string
+      description: The ID of the transaction on AZPay
+      example: "52580F07-80FD-3241-DAE2-BDC38138193A"
+      default: "52580F07-80FD-3241-DAE2-BDC38138193A"
+    operationId: 
+      type: string
+      example: "7"
+      default: "7"
+    status:
+      type: string
+      description: The current status of the transaction
+      example: "10"
+      default: "10"
+    message: 
+      type: string
+      description: The response message from AZPay
+      example: SHEDULED
+      default: SHEDULED
+    log:
+      type: string
+      example: ""
+      default: ""
+    errorCode:
+      type: string
+      description: Check at https://doc.azpay.com.br/docs/api-codigos-de-erros
+      example: ""
+      default: ""
+    order:
+      $ref: "./order.yaml#/OrderResponse"
+    processor:
+      $ref: "./processor.yaml#/DefaultProcessor"
