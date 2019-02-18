@@ -26,7 +26,7 @@ MerchantKey:
 CheckoutToken:
   in: header
   name: Checkout-Token
-  description: "Your Checkout-Token. You can create yours here: https://painel.azpay.com.br"
+  description: "Your Checkout-Token. You can create yours here: https://checkout.azpay.com.br"
   required: true
   schema:
     type: string

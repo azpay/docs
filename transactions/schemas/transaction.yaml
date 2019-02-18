@@ -19,8 +19,13 @@ Report:
       properties:
         transactionId:
           type: string
-          description: "The id of an Authorized transaction"
+          description: "The id of an Authorized transaction. Pass this or your `reference`."
           example: D97832E5-2B96-E3BE-F7B4-87318C5A333A
+        reference:
+          type: string
+          description: "The reference of your order. Pass this or your `transactionId`."
+          example: "123456789"
+
 
 ReportResponse:
   type: object
