@@ -10,7 +10,7 @@ ContentType:
 MerchantId:
   in: header
   name: Merchant-Id
-  description: "Your Merchant-Id. You can find yours here: https://hub.azpay.com.br"
+  description: "Your Merchant-Id(Sandbox environment ONLY). You can find yours here: https://hub.azpay.com.br"
   required: true
   schema:
     type: string
@@ -18,7 +18,7 @@ MerchantId:
 MerchantKey:
   in: header
   name: Merchant-Key
-  description: "Your Merchant-Key. You can find yours here: https://hub.azpay.com.br"
+  description: "Your Merchant-Key(Sandbox environment ONLY). You can find yours here: https://hub.azpay.com.br"
   required: true
   schema:
     type: string
@@ -26,7 +26,7 @@ MerchantKey:
 CheckoutToken:
   in: header
   name: Checkout-Token
-  description: "Your Checkout-Token. You can create yours here: https://checkout.azpay.com.br"
+  description: "Your Checkout-Token(Sandbox environment ONLY). You can create yours here: https://checkout.azpay.com.br"
   required: true
   schema:
     type: string
