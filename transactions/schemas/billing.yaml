@@ -48,6 +48,10 @@ DefaultBilling:
       description: "[0..145] Customer's email"
       example: fulanodetal@email.com 
       default: fulanodetal@email.com 
+    customerIP:
+      type: string
+      description: "[0..15] Customer's IP. Required by some acquirers (Ex: Worldpay)"
+      example: "170.0.0.1"
 
 BoletoBilling:
   type: object
