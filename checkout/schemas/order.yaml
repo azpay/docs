@@ -15,7 +15,15 @@ GenerateOrderToken:
       description: "The currency ISO 3166-1 Alfa-3"
       example: "BRL"
       default: "BRL"
-    customField:
+    custom_parameters:
+      type: object
+      description: "The custom parameters are used for the payment payment rules, you can pass the parameters you created inside this object. You can see more on: https://checkout.azpay.com.br/payment_rules"
+      properties:
+        parameter:
+          type: string
+          description: "This is just an example the name and the value of this parameter must be created on our panel. You can see more on: https://checkout.azpay.com.br/payment_rules"
+          example: parameter_value
+    custom_field:
       type: string
       description: "A field for a custom string"
       example: This is a custom string
