@@ -2,7 +2,7 @@ openapi: 3.0.0
 # Added by API Auto Mocking Plugin
 servers:
   - description: AZPay Transactions API
-    url: http://evaluation-api.azpay.com.br/v1
+    url: http://evaluation-api.azpay.services/v1
 info:
   description: This is AZPay Transactions API
   version: "1.0.0"
