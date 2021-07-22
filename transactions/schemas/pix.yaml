@@ -1,0 +1,74 @@
+Pix:
+  type: object
+  required:
+    - version
+    - verification
+    - pix
+  properties:
+    version:
+      type: string
+      description: "[3..5] The XML version number"
+      example: "1.0.0"
+      default: "1.0.0"
+    verification:
+      type: object
+      $ref: "./verification.yaml#/DefaultVerification"
+    pix:
+      type: object
+      required:
+        - order
+        - payment
+        - billing
+        - urlReturn
+      properties:
+        order:
+          $ref: "./order.yaml#/DefaultOrder"
+        payment:
+          $ref: "./payment.yaml#/DefaultPixPayment"
+        billing:
+          $ref: "./billing.yaml#/BoletoBilling"
+        urlReturn:
+          type: string
+          description: "[0..255] The URL that will receive an HTTPS POST after changes in the transaction's status"
+          example: http://loja.exemplo.com.br
+          default: http://loja.exemplo.com.br
+        customField:
+          type: string
+          description: "[0..255] A param you can use for your custom needs"
+          example: "This is a custom field being used"
+
+PixResponse:
+  type: object
+  properties:
+    transactionId:
+      type: string
+      description: The ID of the transaction on AZPay
+      example: "52580F07-80FD-3241-DAE2-BDC38138193A"
+      default: "52580F07-80FD-3241-DAE2-BDC38138193A"
+    operationId:
+      type: string
+      example: "4"
+      default: "4"
+    status:
+      type: string
+      description: The current status of the transaction
+      example: "0"
+      default: "0"
+    message:
+      type: string
+      description: The response message from AZPay
+      example: WAITING FOR PAYMENT
+      default: WAITING FOR PAYMENT
+    log:
+      type: string
+      example: ""
+      default: ""
+    errorCode:
+      type: string
+      description: Check at https://doc.azpay.com.br/docs/api-codigos-de-erros
+      example: ""
+      default: ""
+    order:
+      $ref: "./order.yaml#/OrderResponse"
+    processor:
+      $ref: "./processor.yaml#/DefaultPixProcessor"

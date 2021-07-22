@@ -1,53 +1,56 @@
-  /receiver#transactionReport:
-    $ref: './transaction.yaml#/TransactionReport'
+/receiver#transactionReport:
+  $ref: "./transaction.yaml#/TransactionReport"
 
-  /receiver#transactionCancel:
-    $ref: './transaction.yaml#/TransactionCancel'
-  
-  /receiver#transactionSchedule:
-    $ref: './transaction.yaml#/TransactionSchedule'
+/receiver#transactionCancel:
+  $ref: "./transaction.yaml#/TransactionCancel"
 
-  /receiver#creditCardAuthorization:
-    $ref: './creditCard.yaml#/CreditCardAuthorization'
+/receiver#transactionSchedule:
+  $ref: "./transaction.yaml#/TransactionSchedule"
 
-  /receiver#creditCardCapture:
-    $ref: './creditCard.yaml#/CreditCardCapture'
+/receiver#creditCardAuthorization:
+  $ref: "./creditCard.yaml#/CreditCardAuthorization"
 
-  /receiver#creditCardSale:
-    $ref: './creditCard.yaml#/CreditCardSale'
+/receiver#creditCardCapture:
+  $ref: "./creditCard.yaml#/CreditCardCapture"
 
-  /receiver#debitCardAuthorization:
-    $ref: './debitCard.yaml#/DebitCardAuthorization'
+/receiver#creditCardSale:
+  $ref: "./creditCard.yaml#/CreditCardSale"
 
-  /receiver#boleto:
-    $ref: './boleto.yaml#/Boleto'
+/receiver#debitCardAuthorization:
+  $ref: "./debitCard.yaml#/DebitCardAuthorization"
 
-  /receiver#pagseguro:
-    $ref: './pagSeguro.yaml#/PagSeguro'
+/receiver#boleto:
+  $ref: "./boleto.yaml#/Boleto"
 
-  /receiver#pagsegurocheckout:
-    $ref: './pagSeguro.yaml#/PagSeguroCheckout'
+/receiver#pix:
+  $ref: "./pix.yaml#/Pix"
 
-  /receiver#paypalExpress:
-    $ref: './paypal.yaml#/PaypalExpress'
+/receiver#pagseguro:
+  $ref: "./pagSeguro.yaml#/PagSeguro"
 
-  /receiver#paypalPlus:
-    $ref: './paypal.yaml#/PaypalPlus'
-  
-  /receiver#WireTransfer:
-    $ref: './wireTransfer.yaml#/WireTransfer'
+/receiver#pagsegurocheckout:
+  $ref: "./pagSeguro.yaml#/PagSeguroCheckout"
 
-  /receiver#ClearSaleAntiFraud:
-    $ref: './antiFraud.yaml#/ClearSaleAntiFraud'
+/receiver#paypalExpress:
+  $ref: "./paypal.yaml#/PaypalExpress"
 
-  /receiver#KondutoAntiFraud:
-    $ref: './antiFraud.yaml#/KondutoAntiFraud'
+/receiver#paypalPlus:
+  $ref: "./paypal.yaml#/PaypalPlus"
 
-  /receiver#FcontrolAntiFraud:
-    $ref: './antiFraud.yaml#/FcontrolAntiFraud'
+/receiver#WireTransfer:
+  $ref: "./wireTransfer.yaml#/WireTransfer"
 
-  /token/add:
-    $ref: './token.yaml#/CreateToken'
-  
-  /token/retrieve:
-    $ref: './token.yaml#/RetrieveToken'
+/receiver#ClearSaleAntiFraud:
+  $ref: "./antiFraud.yaml#/ClearSaleAntiFraud"
+
+/receiver#KondutoAntiFraud:
+  $ref: "./antiFraud.yaml#/KondutoAntiFraud"
+
+/receiver#FcontrolAntiFraud:
+  $ref: "./antiFraud.yaml#/FcontrolAntiFraud"
+
+/token/add:
+  $ref: "./token.yaml#/CreateToken"
+
+/token/retrieve:
+  $ref: "./token.yaml#/RetrieveToken"

@@ -7,10 +7,10 @@ DefaultVerification:
     merchantId:
       type: string
       description: "[1..10] The store's number on AZPay(Sandbox environment ONLY). You can find yours on https://hub.azpay.com.br"
-      default: ""
-      example: "1"
+      default: "1233"
+      example: "1233"
     merchantKey:
       type: string
-      default: ""
+      default: "d41d8cd98f00b204e9800998wewe"
       description: "[10..50] The store token on AZPay(Sandbox environment ONLY). You can find yours on https://hub.azpay.com.br"
-      example: "d41d8cd98f00b204e9800998ecf8427e"
+      example: "d41d8cd98f00b204e9800998wewe"

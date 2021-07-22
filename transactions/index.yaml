@@ -2,13 +2,13 @@ openapi: 3.0.0
 # Added by API Auto Mocking Plugin
 servers:
   - description: AZPay Transactions API
-    url: http://evaluation-api.azpay.services/v1
+    url: https://evaluation-api.azpay.services/v1
 info:
   description: This is AZPay Transactions API
   version: "1.0.0"
   title: AZPay Transactions API
   contact:
-    email: contato@azpay.com.br
+    email: atendimento@azpay.com.br
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
