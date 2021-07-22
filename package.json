@@ -25,6 +25,6 @@
   "homepage": "https://github.com/azpay/docs#readme",
   "dependencies": {
     "rdme": "^2.2.3",
-    "swagger-ui-watcher": "^2.1.6"
+    "swagger-ui-watcher": "^2.1.12"
   }
 }
